@@ -1,2 +1,2 @@
-# DVDBuilder-.NET-Wiki-Site
+# dvdbuilder-wiki-net
 wiki-net.dvdbuilder.com
