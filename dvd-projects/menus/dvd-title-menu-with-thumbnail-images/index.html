@@ -1,0 +1,669 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../../">
+  <head><meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="This topic describes a DVDBuilder project for a DVD with a title menu." name="description" />
+<meta property="og:title" content="DVD Title Menu with Thumbnail Images" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://wiki-net.dvdbuilder.com/dvd-projects/menus/dvd-title-menu-with-thumbnail-images/" />
+<meta property="og:site_name" content="DVDBuilder for .NET" />
+<meta property="og:description" content="This topic describes a DVDBuilder project for a DVD with a title menu. The menu buttons are designed as thumbnail images, and the selection and activation effects are done with a color frames aroun..." />
+<meta property="og:image" content="https://wiki-net.dvdbuilder.com/_static/og-image.png" />
+<meta property="og:image:alt" content="DVDBuilder for .NET" />
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://wiki-net.dvdbuilder.com/_static/og-image.png">
+<link rel="search" title="Search" href="../../../search/" /><link rel="next" title="Create Text-only Menu Background and Mask in GIMP" href="../create-text-only-menu-background-and-mask-in-gimp/" /><link rel="prev" title="Create Thumbnail Menu Background and Mask in GIMP" href="../create-thumbnail-menu-background-and-mask-in-gimp/" />
+        <link rel="canonical" href="https://wiki-net.dvdbuilder.com/dvd-projects/menus/dvd-title-menu-with-thumbnail-images/" />
+
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/><!-- Generated with Sphinx 7.4.7 and Furo 2024.08.06 --><title>DVD Title Menu with Thumbnail Images - DVDBuilder™ Wiki for .NET</title><link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/furo-extensions.css?v=302659d7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=e7af7f67" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f8f8f8;
+  --color-code-foreground: black;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5ZZYTX7WQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-E5ZZYTX7WQ', { 'anonymize_ip': true });
+</script>
+</head>
+  <body>
+    <nav class="top-nav">
+  <div class="top-nav-links">
+    <a href="https://wiki.dvdbuilder.com" target="_blank" rel="noopener">C++ Wiki</a>
+    <a href="https://github.com/dvdbuilder" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://blog.dvdbuilder.com" target="_blank" rel="noopener">Blog</a>
+    <a href="https://dvdbuilder.com" target="_blank" rel="noopener">dvdbuilder.com</a>
+  </div>
+</nav>
+
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
+<label class="overlay sidebar-overlay" for="__navigation">
+  <div class="visually-hidden">Hide navigation sidebar</div>
+</label>
+<label class="overlay toc-overlay" for="__toc">
+  <div class="visually-hidden">Hide table of contents sidebar</div>
+</label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <div class="visually-hidden">Toggle site navigation sidebar</div>
+        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../../"><div class="brand">DVDBuilder&trade; Wiki for .NET</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle">
+          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <div class="visually-hidden">Toggle table of contents sidebar</div>
+        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../../">
+  
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo" src="../../../_static/logo_blue_128.svg" alt="Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">DVDBuilder&trade; Wiki for .NET</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvdbuilder-for-net/initialization-and-termination/">Initialization and Termination</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvdbuilder-for-net/setting-license-info/">Setting License Info</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Building DVDs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvdbuilder-for-net/simple-dvd/">Simple DVD</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvdbuilder-for-net/dvd-with-a-title-menu/">DVD with a Title Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvdbuilder-for-net/dvd-with-intro-and-main-menu/">DVD with Intro and Main Menu</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dvdbuilder-for-net/dvd-with-subtitles/">DVD with Subtitles</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">DVD Projects</span></p>
+<ul class="current">
+<li class="toctree-l1 current has-children"><a class="reference internal" href="../">Menus</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" role="switch" type="checkbox"/><label for="toctree-checkbox-1"><div class="visually-hidden">Toggle navigation of Menus</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../create-thumbnail-menu-background-and-mask-in-gimp/">Create Thumbnail Menu Background and Mask in GIMP</a></li>
+<li class="toctree-l2 current current-page"><a class="current reference internal" href="#">DVD Title Menu with Thumbnail Images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../create-text-only-menu-background-and-mask-in-gimp/">Create Text-only Menu Background and Mask in GIMP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dvd-title-menu-with-text-links/">DVD Title Menu with Text Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dvd-with-intro-and-main-menu/">DVD with Intro and Main Menu</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../subtitles/">Subtitles</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" role="switch" type="checkbox"/><label for="toctree-checkbox-2"><div class="visually-hidden">Toggle navigation of Subtitles</div><i class="icon"><svg><use href="#svg-arrow-right"></use></svg></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../subtitles/subtitle-format/">Subtitle Format</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">About</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../about-dvdbuilder/">About DVDBuilder</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Docs</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../api-docs/">API Docs</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../whats-new/">What’s New</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../release-notes/">Release Notes</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle">
+              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <div class="visually-hidden">Toggle table of contents sidebar</div>
+            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section id="dvd-title-menu-with-thumbnail-images">
+<h1>DVD Title Menu with Thumbnail Images<a class="headerlink" href="#dvd-title-menu-with-thumbnail-images" title="Link to this heading">¶</a></h1>
+<p>This topic describes a DVDBuilder project for a DVD with a title menu. The menu buttons are designed as thumbnail images, and the selection and activation effects are done with a color frames around the buttons.</p>
+<p>This topic discusses only the DVDBuilder project’s XML elements and XML attributes. For steps to create the actual DVD, see the <a class="reference internal" href="../../../dvdbuilder-for-net/dvd-with-a-title-menu/"><span class="std std-doc">DVD with a Title Menu</span></a> topic in the <a class="reference internal" href="../../../"><span class="std std-doc">DVDBuilder Programming</span></a> section.</p>
+<section id="background-and-mask">
+<h2>Background and Mask<a class="headerlink" href="#background-and-mask" title="Link to this heading">¶</a></h2>
+<p>For this project we will use the following background and mask images (<code class="docutils literal notranslate"><span class="pre">Menu_NTSC.jpg</span></code>, <code class="docutils literal notranslate"><span class="pre">Menu_NTSC_Mask.bmp</span></code>):</p>
+<p><a class="reference internal" href="../../../_images/Menu_NTSC.jpg"><img alt="Menu_NTSC.jpg" src="../../../_images/Menu_NTSC.jpg" style="width: 300px;" /></a>
+<a class="reference internal" href="../../../_images/Menu_NTSC_Mask.png"><img alt="Menu_NTSC_Mask.bmp" src="../../../_images/Menu_NTSC_Mask.png" style="width: 300px;" /></a> (<a class="reference download internal" download="" href="../../../_downloads/26be4b1698331e589c5291706851761a/Menu_NTSC_Mask.bmp"><span class="xref download myst">Menu_NTSC_Mask.bmp</span></a>)
+<br class="float-clear"/></p>
+<p>See <a class="reference internal" href="../create-thumbnail-menu-background-and-mask-in-gimp/"><span class="std std-doc">Create Thumbnail Menu Background and Mask in GIMP</span></a> for the steps to create the background and mask images.</p>
+</section>
+<section id="dvdbuilder-project">
+<h2>DVDBuilder Project<a class="headerlink" href="#dvdbuilder-project" title="Link to this heading">¶</a></h2>
+<p>This is the complete DVDBuilder project. It defines a title menu, and a title set with two titles.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">            </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">left=</span><span class="s">'130'</span><span class="w"> </span><span class="na">top=</span><span class="s">'150'</span><span class="w"> </span><span class="na">width=</span><span class="s">'200'</span><span class="w"> </span><span class="na">height=</span><span class="s">'150'</span><span class="w"> </span><span class="na">navigate=</span><span class="s">'Title=1;'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">left=</span><span class="s">'370'</span><span class="w"> </span><span class="na">top=</span><span class="s">'150'</span><span class="w"> </span><span class="na">width=</span><span class="s">'200'</span><span class="w"> </span><span class="na">height=</span><span class="s">'150'</span><span class="w"> </span><span class="na">navigate=</span><span class="s">'Title=2;'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;background</span><span class="w"> </span><span class="na">file=</span><span class="s">'Menu_NTSC.mpg'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;mask</span>
+<span class="w">                    </span><span class="na">file=</span><span class="s">'Menu_NTSC_Mask.bmp'</span>
+<span class="w">                    </span><span class="na">backgroundColor =</span><span class="s">'#000000'</span>
+<span class="w">                    </span><span class="na">patternColor    =</span><span class="s">'#FF0000'</span>
+<span class="w">                    </span><span class="na">emphasisColor1  =</span><span class="s">'#00FF00'</span>
+<span class="w">                    </span><span class="na">emphasisColor2  =</span><span class="s">'#0000FF'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;display</span>
+<span class="w">                    </span><span class="na">backgroundColor=</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">backgroundContrast=</span><span class="s">'0'</span>
+<span class="w">                    </span><span class="na">patternColor   =</span><span class="s">'#FFFFFF'</span><span class="w"> </span><span class="na">patternContrast   =</span><span class="s">'3'</span>
+<span class="w">                    </span><span class="na">emphasis1Color =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">emphasis1Contrast =</span><span class="s">'0'</span>
+<span class="w">                    </span><span class="na">emphasis2Color =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">emphasis2Contrast =</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;selection</span>
+<span class="w">                    </span><span class="na">backgroundColor=</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">backgroundContrast=</span><span class="s">'0'</span>
+<span class="w">                    </span><span class="na">patternColor   =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">patternContrast   =</span><span class="s">'0'</span>
+<span class="w">                    </span><span class="na">emphasis1Color =</span><span class="s">'#FF00FF'</span><span class="w"> </span><span class="na">emphasis1Contrast =</span><span class="s">'15'</span>
+<span class="w">                    </span><span class="na">emphasis2Color =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">emphasis2Contrast =</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;action</span>
+<span class="w">                    </span><span class="na">backgroundColor=</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">backgroundContrast=</span><span class="s">'0'</span>
+<span class="w">                    </span><span class="na">patternColor   =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">patternContrast   =</span><span class="s">'0'</span>
+<span class="w">                    </span><span class="na">emphasis1Color =</span><span class="s">'#FF00FF'</span><span class="w"> </span><span class="na">emphasis1Contrast =</span><span class="s">'15'</span>
+<span class="w">                    </span><span class="na">emphasis2Color =</span><span class="s">'#FFFF00'</span><span class="w"> </span><span class="na">emphasis2Contrast =</span><span class="s">'10'</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span><span class="nt">&lt;titleSet&gt;</span>
+<span class="w">        </span><span class="nt">&lt;titles&gt;</span>
+<span class="w">            </span><span class="nt">&lt;title</span><span class="w"> </span><span class="na">id=</span><span class="s">'1'</span><span class="w"> </span><span class="na">chapters=</span><span class="s">'00:00:00;'</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;videoObject</span><span class="w"> </span><span class="na">file=</span><span class="s">'Elephant.mpg'</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/title&gt;</span>
+<span class="w">            </span><span class="nt">&lt;title</span><span class="w"> </span><span class="na">id=</span><span class="s">'2'</span><span class="w"> </span><span class="na">chapters=</span><span class="s">'00:00:00;'</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;videoObject</span><span class="w"> </span><span class="na">file=</span><span class="s">'Hippo.mpg'</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/title&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/titles&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/titleSet&gt;</span>
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+<section id="the-dvd-element">
+<h3>The &lt;dvd&gt; Element<a class="headerlink" href="#the-dvd-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;dvd&gt;</span></code> element is the root element of the DVD xml project. The <code class="docutils literal notranslate"><span class="pre">&lt;dvd&gt;</span></code> tag may contain one <code class="docutils literal notranslate"><span class="pre">&lt;videoManager&gt;</span></code> elements and one or more <code class="docutils literal notranslate"><span class="pre">&lt;titleSet&gt;</span></code> elements. The <code class="docutils literal notranslate"><span class="pre">&lt;dvd&gt;</span></code> element also specifies the supported DVD schema version.</p>
+<p>The following <code class="docutils literal notranslate"><span class="pre">&lt;dvd&gt;</span></code> element specifies a DVD markup that conforms to DVD schema version 2.3.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-videomanager-element">
+<h3>The &lt;videoManager&gt; Element<a class="headerlink" href="#the-videomanager-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;videoManager&gt;</span></code> element specifies a top-level menu, also known as a title menu, and a first-play navigation command. The first-play navigation command is executed when a disc is inserted in a player.</p>
+<p>The following <code class="docutils literal notranslate"><span class="pre">&lt;videoManager&gt;</span></code> element defines a first-play command that navigates to a top-level ‘title’ menu. When this DVD is inserted in a player, the player will show the ‘title’ menu first.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span>...
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-menus-element">
+<h3>The &lt;menus&gt; Element<a class="headerlink" href="#the-menus-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;menus&gt;</span></code> element can be in the <code class="docutils literal notranslate"><span class="pre">&lt;videoManager&gt;</span></code> element or in the <code class="docutils literal notranslate"><span class="pre">&lt;titleSet&gt;</span></code> element. The <code class="docutils literal notranslate"><span class="pre">&lt;menus&gt;</span></code> element can have one or more child <code class="docutils literal notranslate"><span class="pre">&lt;menu&gt;</span></code> elements.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span>...
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-menu-element">
+<h3>The &lt;menu&gt; Element<a class="headerlink" href="#the-menu-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;menu&gt;</span></code> element defines a DVD menu background and mask, position and size of all buttons, and the display, selection, and action properties of each button.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-button-element">
+<h3>The &lt;button&gt; Element<a class="headerlink" href="#the-button-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> element defines a rectangular area on a DVD menu that can be selected and activated.</p>
+<p>A DVD <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> is selected when a viewer moves through the menu by pressing arrow buttons on a DVD player remote control.</p>
+<p>A DVD <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> is activated when a viewer presses Enter or OK button on a DVD player remote control. When a <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> is activated the DVD player executes the navigation command associated with the <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code>.</p>
+<p>There can be up to 36 <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> elements in one <code class="docutils literal notranslate"><span class="pre">&lt;menu&gt;</span></code> element.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">left=</span><span class="s">'130'</span><span class="w"> </span><span class="na">top=</span><span class="s">'150'</span><span class="w"> </span><span class="na">width=</span><span class="s">'200'</span><span class="w"> </span><span class="na">height=</span><span class="s">'150'</span><span class="w"> </span><span class="na">navigate=</span><span class="s">'Title=1;'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;button</span><span class="w"> </span><span class="na">left=</span><span class="s">'370'</span><span class="w"> </span><span class="na">top=</span><span class="s">'150'</span><span class="w"> </span><span class="na">width=</span><span class="s">'200'</span><span class="w"> </span><span class="na">height=</span><span class="s">'150'</span><span class="w"> </span><span class="na">navigate=</span><span class="s">'Title=2;'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...<span class="w"> </span>
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="the-background-element">
+<h3>The &lt;background&gt; Element<a class="headerlink" href="#the-background-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;background&gt;</span></code> element specifies the DVD menu background. This can be a static background created from an image, or a moving background created from a video clip.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;background</span><span class="w"> </span><span class="na">file=</span><span class="s">'Menu_NTSC.mpg'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>An image cannot be used as a DVD menu background directly. It must be converted to MPEG-2 video first.</p>
+</div></blockquote>
+</section>
+<section id="the-mask-element">
+<h3>The &lt;mask&gt; Element<a class="headerlink" href="#the-mask-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;mask&gt;</span></code> element identifies up to three graphical patterns that can be used for selection and activation effects. The three graphical patterns are defined by three different colors, which are set with the <code class="docutils literal notranslate"><span class="pre">patternColor</span></code>, <code class="docutils literal notranslate"><span class="pre">emphasisColor1</span></code>, and <code class="docutils literal notranslate"><span class="pre">emphasisColor2</span></code> attributes. The fourth attribute, the <code class="docutils literal notranslate"><span class="pre">backgroundColor</span></code> specifies which parts of the mask should leak the background specified with the <code class="docutils literal notranslate"><span class="pre">&lt;background&gt;</span></code> element.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">   </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">       </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">       </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">           </span>...
+<span class="w">           </span><span class="nt">&lt;mask</span>
+<span class="w">           </span><span class="na">file=</span><span class="s">'Menu_NTSC_Mask.bmp'</span>
+<span class="w">           </span><span class="na">backgroundColor =</span><span class="s">'#000000'</span>
+<span class="w">           </span><span class="na">patternColor    =</span><span class="s">'#FF0000'</span>
+<span class="w">           </span><span class="na">emphasisColor1  =</span><span class="s">'#00FF00'</span>
+<span class="w">           </span><span class="na">emphasisColor2  =</span><span class="s">'#0000FF'</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">           </span>...
+<span class="w">       </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">       </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">       </span>...
+<span class="w">   </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+<p>The attributes of the <code class="docutils literal notranslate"><span class="pre">&lt;mask&gt;</span></code> element map the “pattern” to the red rectangle (patternColor=’#FF0000′), the “emphasis1″ to the green frame (emphasisColor1=’#00FF00′), and the “emphasis2″ to the blue frame (emphasisColor2=’#0000FF’).</p>
+<blockquote>
+<div><p>Note that the mask colors are not shown anywhere. They simply help DVD players identify different shapes in the mask.</p>
+</div></blockquote>
+</section>
+<section id="the-display-element">
+<h3>The &lt;display&gt; Element<a class="headerlink" href="#the-display-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;display&gt;</span></code> element determines the color and the contrast of the “background”, “pattern”, “emphasis1″ and “emphasis2″ mask shapes for the whole video frame. The rectangles specified by the <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> elements are ignored when painting the “display” patterns.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">            </span>...
+<span class="w">            </span><span class="nt">&lt;display</span>
+<span class="w">            </span><span class="na">backgroundColor=</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">backgroundContrast=</span><span class="s">'0'</span>
+<span class="w">            </span><span class="na">patternColor   =</span><span class="s">'#FFFFFF'</span><span class="w"> </span><span class="na">patternContrast   =</span><span class="s">'3'</span>
+<span class="w">            </span><span class="na">emphasis1Color =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">emphasis1Contrast =</span><span class="s">'0'</span>
+<span class="w">            </span><span class="na">emphasis2Color =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">emphasis2Contrast =</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+<p>In this particular case, the pattern color is set to <strong>white</strong> (patternColor=’#FFFFFF’) and the pattern contrast to 3 (patternContrast=’3′). Given that 15 is the highest possible contrast value, the result is a semi-transparent white rectangle painted over deselected buttons. That essentially creates a fade out effect for deselected buttons. The white shape is a rectangle, because the “pattern” shape defined by the <code class="docutils literal notranslate"><span class="pre">&lt;mask&gt;</span></code> element and the mask image is a rectangle (i.e. the red rectangle in the mask image above).</p>
+<p>This is how it looks during playback. Notice that when not selected the buttons look a little washed out:</p>
+<p><a class="reference internal" href="../../../_images/65_Title_Menu_Thumbnail_Selection_1.png"><img alt="Thumbnail Selection 1" src="../../../_images/65_Title_Menu_Thumbnail_Selection_1.png" style="width: 300px;" /></a>
+<a class="reference internal" href="../../../_images/66_Title_Menu_Thumbnail_Selection_2.png"><img alt="Thumbnail Selection 2" src="../../../_images/66_Title_Menu_Thumbnail_Selection_2.png" style="width: 300px;" /></a>
+<br class="float-clear"/></p>
+</section>
+<section id="the-selection-element">
+<h3>The &lt;selection&gt; Element<a class="headerlink" href="#the-selection-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;selection&gt;</span></code> element determines the color and the contrast of the “background”, “pattern”, “emphasis1″ and “emphasis2″ mask shapes when a menu button is selected. The rectangle of each <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> element is used as a clipping area when painting the “selected” patterns, i.e. patterns are painted only inside the button rectangle.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">            </span>...
+<span class="w">            </span><span class="nt">&lt;selection</span>
+<span class="w">            </span><span class="na">backgroundColor=</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">backgroundContrast=</span><span class="s">'0'</span>
+<span class="w">            </span><span class="na">patternColor   =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">patternContrast   =</span><span class="s">'0'</span>
+<span class="w">            </span><span class="na">emphasis1Color =</span><span class="s">'#FF00FF'</span><span class="w"> </span><span class="na">emphasis1Contrast =</span><span class="s">'15'</span>
+<span class="w">            </span><span class="na">emphasis2Color =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">emphasis2Contrast =</span><span class="s">'0'</span><span class="nt">/&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+<p>The emphasis1 color is set to <strong>magenta</strong> (emphasis1Color=’#FF00FF’) and the emphasis1 contrast to 15 ( emphasis1Contrast=’15’). The result is a magenta frame painted around the selected button. The magenta frame shape and size matches the “emphasis1″ shape as defined by the <code class="docutils literal notranslate"><span class="pre">&lt;mask&gt;</span></code> element and the mask image (i.e. the green frame in the mask image above).</p>
+<p>This is how it looks during playback:</p>
+<p><a class="reference internal" href="../../../_images/65_Title_Menu_Thumbnail_Selection_1.png"><img alt="Thumbnail Selection 1" src="../../../_images/65_Title_Menu_Thumbnail_Selection_1.png" style="width: 300px;" /></a>
+<br class="float-clear"/></p>
+</section>
+<section id="the-action-element">
+<h3>The &lt;action&gt; Element<a class="headerlink" href="#the-action-element" title="Link to this heading">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;action&gt;</span></code> element determines the color and the contrast of the “pattern”, “emphasis1″ and “emphasis2″ mask shapes when a menu button is activated. The rectangle of each <code class="docutils literal notranslate"><span class="pre">&lt;button&gt;</span></code> element is used as a clipping area when painting the “activated” patterns, i.e. patterns are painted only inside the button rectangle.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0' encoding='utf-8'?&gt;</span>
+<span class="nt">&lt;dvd</span><span class="w"> </span><span class="na">version=</span><span class="s">'2.3'</span><span class="w"> </span><span class="na">xmlns=</span><span class="s">'http://www.primosoftware.com/dvdbuilder/2.3'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;videoManager</span><span class="w"> </span><span class="na">firstPlayNavigate=</span><span class="s">'Menu=1001;'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menus&gt;</span>
+<span class="w">        </span><span class="nt">&lt;menu</span><span class="w"> </span><span class="na">id=</span><span class="s">'1001'</span><span class="w"> </span><span class="na">entry=</span><span class="s">'title'</span><span class="nt">&gt;</span>
+<span class="w">            </span>...
+<span class="w">            </span><span class="nt">&lt;action</span>
+<span class="w">            </span><span class="na">backgroundColor=</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">backgroundContrast=</span><span class="s">'0'</span>
+<span class="w">            </span><span class="na">patternColor   =</span><span class="s">'#000000'</span><span class="w"> </span><span class="na">patternContrast   =</span><span class="s">'0'</span>
+<span class="w">            </span><span class="na">emphasis1Color =</span><span class="s">'#FF00FF'</span><span class="w"> </span><span class="na">emphasis1Contrast =</span><span class="s">'15'</span>
+<span class="w">            </span><span class="na">emphasis2Color =</span><span class="s">'#FFFF00'</span><span class="w"> </span><span class="na">emphasis2Contrast =</span><span class="s">'10'</span><span class="nt">/&gt;</span>
+<span class="w">            </span>...
+<span class="w">        </span><span class="nt">&lt;/menu&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/menus&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/videoManager&gt;</span>
+<span class="w">    </span>...
+<span class="nt">&lt;/dvd&gt;</span>
+</pre></div>
+</div>
+<p>The emphasis1 color is set to <strong>magenta</strong> (emphasis1Color=’#FF00FF’) and the emphasis1 contrast to 15 ( emphasis1Contrast=’15’). The result is a magenta frame painted around the activated button. The magenta frame shape and size matches the “emphasis1″ shape as defined by the <code class="docutils literal notranslate"><span class="pre">&lt;mask&gt;</span></code> element and the mask image (see the green frame in the mask image above).</p>
+<p>The emphasis2 color is set to <strong>yellow</strong> (emphasis2Color=’#FFFF00′) and the emphasis2 contrast to 10 ( emphasis2Contrast=’10’). Given that 15 is the highest possible contrast value, the result is a semi-transparent yellow frame painted around the magenta frame. That essentially creates a glow effect for activated buttons. The yellow shape is a frame, because the “emphasis2″ pattern identified by the <code class="docutils literal notranslate"><span class="pre">&lt;mask&gt;</span></code> element and the mask image is a frame (i.e. the blue rectangle in the mask image above).</p>
+<p>This is how it looks during playback:</p>
+<p><a class="reference internal" href="../../../_images/67_Title_Menu_Thumbnail_Action_2.png"><img alt="Thumbnail Action 2" src="../../../_images/67_Title_Menu_Thumbnail_Action_2.png" style="width: 300px;" /></a>
+<br class="float-clear"/></p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+<div class="related-pages">
+  <a class="next-page" href="../create-text-only-menu-background-and-mask-in-gimp/">
+      <div class="page-info">
+        <div class="context">
+          <span>Next</span>
+        </div>
+        <div class="title">Create Text-only Menu Background and Mask in GIMP</div>
+      </div>
+      <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+    </a>
+  <a class="prev-page" href="../create-thumbnail-menu-background-and-mask-in-gimp/">
+      <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+      <div class="page-info">
+        <div class="context">
+          <span>Previous</span>
+        </div>
+        
+        <div class="title">Create Thumbnail Menu Background and Mask in GIMP</div>
+        
+      </div>
+    </a>
+</div>
+<div class="bottom-of-page">
+  <div class="left-details">
+    <div class="copyright">
+        Copyright &#169; 2003 - 2026, Primo Software Corp.
+    </div>
+  </div>
+  <div class="right-details">
+    <div class="icons">
+      
+      <a href="https://github.com/dvdbuilder" class="muted-link " aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+      
+      
+    </div>
+  </div>
+</div>
+
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">DVD Title Menu with Thumbnail Images</a><ul>
+<li><a class="reference internal" href="#background-and-mask">Background and Mask</a></li>
+<li><a class="reference internal" href="#dvdbuilder-project">DVDBuilder Project</a><ul>
+<li><a class="reference internal" href="#the-dvd-element">The &lt;dvd&gt; Element</a></li>
+<li><a class="reference internal" href="#the-videomanager-element">The &lt;videoManager&gt; Element</a></li>
+<li><a class="reference internal" href="#the-menus-element">The &lt;menus&gt; Element</a></li>
+<li><a class="reference internal" href="#the-menu-element">The &lt;menu&gt; Element</a></li>
+<li><a class="reference internal" href="#the-button-element">The &lt;button&gt; Element</a></li>
+<li><a class="reference internal" href="#the-background-element">The &lt;background&gt; Element</a></li>
+<li><a class="reference internal" href="#the-mask-element">The &lt;mask&gt; Element</a></li>
+<li><a class="reference internal" href="#the-display-element">The &lt;display&gt; Element</a></li>
+<li><a class="reference internal" href="#the-selection-element">The &lt;selection&gt; Element</a></li>
+<li><a class="reference internal" href="#the-action-element">The &lt;action&gt; Element</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../../_static/documentation_options.js?v=6e107310"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../../../_static/custom.js?v=8e6776c7"></script>
+    </body>
+</html>

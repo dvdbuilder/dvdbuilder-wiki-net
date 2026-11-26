@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" version="1.1">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1b2a"/>
+      <stop offset="1" stop-color="#1b3a5c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#1e88e5"/>
+
+  <!-- Logo -->
+  <g transform="translate(90,215) scale(8.3333)">
+    <path d="M18 4l2 4h-3l-2-4h-2l2 4h-3l-2-4H8l2 4H7L5 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4h-4z" fill="#1e88e5"/>
+  </g>
+
+  <!-- Text -->
+  <text x="330" y="300" font-family="Helvetica, Arial, sans-serif" font-size="92" font-weight="bold" fill="#ffffff">DVDBuilder</text>
+  <text x="332" y="380" font-family="Helvetica, Arial, sans-serif" font-size="44" font-weight="bold" fill="#1e88e5">DVD Authoring SDK</text>
+  <text x="332" y="445" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#c7d3e0">Titles, Chapters, Menus &amp; Subtitles — C# · F# · VB.NET</text>
+  <text x="332" y="495" font-family="Helvetica, Arial, sans-serif" font-size="32" fill="#c7d3e0">Windows</text>
+</svg>
